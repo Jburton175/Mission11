@@ -1,0 +1,37 @@
+﻿using System;
+using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
+
+namespace Mission11.Data;
+
+public partial class BookstoreContext : DbContext
+{
+    public BookstoreContext()
+    {
+    }
+
+    public BookstoreContext(DbContextOptions<BookstoreContext> options)
+        : base(options)
+    {
+    }
+
+    public virtual DbSet<Book> Books { get; set; }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+         => optionsBuilder.UseSqlite("Data Source=C:\\Users\\jburt\\OneDrive\\Documents\\Winter_2025_Classes\\IS 413\\Mission11\\backend\\Mission11\\Mission11\\Bookstore.sqlite");
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Book>(entity =>
+        {
+            entity.HasIndex(e => e.BookId, "IX_Books_BookID").IsUnique();
+
+            entity.Property(e => e.BookId).HasColumnName("BookID");
+            entity.Property(e => e.Isbn).HasColumnName("ISBN");
+        });
+
+        OnModelCreatingPartial(modelBuilder);
+    }
+
+    partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+}

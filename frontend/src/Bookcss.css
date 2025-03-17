@@ -1,0 +1,149 @@
+.excel-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 16px;
+  color: #333; /* Ensures dark text */
+  background-color: white; /* Ensures table background is white */
+  table-layout: fixed; /* Ensures fixed column widths */
+}
+
+.excel-table th,
+.excel-table td {
+  border: 1px solid #d1d1d1;
+  padding: 8px;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Ensures long text doesn't overflow */
+  overflow-wrap: break-word;
+}
+
+/* Define fixed column widths */
+.excel-table th:nth-child(1),
+.excel-table td:nth-child(1) {
+  width: 25%; /* Title */
+}
+
+.excel-table th:nth-child(2),
+.excel-table td:nth-child(2) {
+  width: 20%; /* Author */
+}
+
+.excel-table th:nth-child(3),
+.excel-table td:nth-child(3) {
+  width: 20%; /* Publisher */
+}
+
+.excel-table th:nth-child(4),
+.excel-table td:nth-child(4) {
+  width: 15%; /* ISBN */
+}
+
+.excel-table th:nth-child(5),
+.excel-table td:nth-child(5) {
+  width: 10%; /* Classification */
+}
+
+.excel-table th:nth-child(6),
+.excel-table td:nth-child(6) {
+  width: 10%; /* Category */
+}
+
+.excel-table th:nth-child(7),
+.excel-table td:nth-child(7) {
+  width: 10%; /* Page Count */
+}
+
+.excel-table th:nth-child(8),
+.excel-table td:nth-child(8) {
+  width: 10%; /* Price */
+}
+
+.excel-table thead {
+  background-color: #e6e6e6; /* Light gray header */
+  font-weight: bold;
+  color: #000; /* Ensures header text is black */
+}
+
+.odd-row {
+  background-color: #ffffff; /* White for odd rows */
+  color: #000; /* Ensures text is black */
+}
+
+.even-row {
+  background-color: #dddddd; /* Light gray for even rows */
+  color: #000; /* Ensures text is black */
+}
+
+.excel-table tr:hover {
+  background-color: #e1ecf4 !important; /* Hover effect like Excel */
+}
+
+body {
+  background-color: #f8f9fa; /* Light gray background like Excel */
+  color: #000; /* Ensures all text is dark */
+}
+
+select.form-select {
+  border: 1px solid #ccc;
+  padding: 4px;
+  background-color: white; /* Ensures dropdown is visible */
+  color: black; /* Ensures dropdown text is visible */
+}
+
+/* Default pagination button styles */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 15px;
+}
+
+/* Non-selected buttons */
+.pagination-container .btn-outline-primary {
+  color: #000;
+  border: 1px solid #000;
+  background-color: white;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Hover effect for non-selected buttons */
+.pagination-container .btn-outline-primary:hover {
+  background-color: #000;
+  border-color: #000;
+  color: white;
+}
+
+/* Selected button */
+.pagination-container .btn-secondary {
+  background-color: #000;
+  color: white;
+  border: 1px solid #000;
+}
+
+/* Disabled buttons */
+.pagination-container .btn-primary:disabled {
+  background-color: #000;
+  border-color: #000;
+  color: white;
+  cursor: not-allowed;
+}
+
+/* Previous and Next buttons */
+.pagination-container .btn-prev-next {
+  color: #000;
+  border: 1px solid #000;
+  background-color: white;
+}
+
+.pagination-container .btn-prev-next:hover {
+  background-color: #000;
+  border-color: #000;
+  color: white;
+}
+
+.pagination-container .btn-prev-next:disabled {
+  background-color: #000;
+  border-color: #000;
+  color: white;
+  cursor: not-allowed;
+}
