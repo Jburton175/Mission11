@@ -30,5 +30,15 @@
     ],
     "ReturnTypes": [],
     "EndpointName": "GetBooks"
+  },
+  {
+    "ContainingType": "Mission11.Controllers.BooksController",
+    "Method": "GetBookCategories",
+    "RelativePath": "Books/BookCategories",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
   }
 ]

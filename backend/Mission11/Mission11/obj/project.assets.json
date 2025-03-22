@@ -2824,11 +2824,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jburt\\OneDrive\\Documents\\Winter_2025_Classes\\IS 413\\Mission11\\backend\\Mission11\\Mission11\\Mission11.csproj",
+      "projectUniqueName": "C:\\Users\\jburt\\OneDrive\\Documents\\Winter_2025_Classes\\IS 413\\Mission12\\Mission11\\backend\\Mission11\\Mission11\\Mission11.csproj",
       "projectName": "Mission11",
-      "projectPath": "C:\\Users\\jburt\\OneDrive\\Documents\\Winter_2025_Classes\\IS 413\\Mission11\\backend\\Mission11\\Mission11\\Mission11.csproj",
+      "projectPath": "C:\\Users\\jburt\\OneDrive\\Documents\\Winter_2025_Classes\\IS 413\\Mission12\\Mission11\\backend\\Mission11\\Mission11\\Mission11.csproj",
       "packagesPath": "C:\\Users\\jburt\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jburt\\OneDrive\\Documents\\Winter_2025_Classes\\IS 413\\Mission11\\backend\\Mission11\\Mission11\\obj\\",
+      "outputPath": "C:\\Users\\jburt\\OneDrive\\Documents\\Winter_2025_Classes\\IS 413\\Mission12\\Mission11\\backend\\Mission11\\Mission11\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

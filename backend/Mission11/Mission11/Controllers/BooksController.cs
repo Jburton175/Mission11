@@ -42,6 +42,16 @@ namespace Mission11.Controllers
 
             return Ok(returnbooks);
         }
+    [HttpGet("BookCategories")]
+    public IActionResult GetBookCategories()
+    {
+        var categories = _repo.Books
+            .Select(b => b.Category)
+            .Distinct()
+            .ToList();
+
+        return Ok(categories);
+    }
 
     }
 }

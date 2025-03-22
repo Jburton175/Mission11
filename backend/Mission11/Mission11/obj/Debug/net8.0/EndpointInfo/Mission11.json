@@ -53,6 +53,18 @@
           }
         }
       }
+    },
+    "/Books/BookCategories": {
+      "get": {
+        "tags": [
+          "Books"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": { }
