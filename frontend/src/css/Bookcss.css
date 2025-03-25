@@ -20,42 +20,47 @@
 /* Define fixed column widths */
 .excel-table th:nth-child(1),
 .excel-table td:nth-child(1) {
-  width: 25%; /* Title */
+  width: 20%; /* Title */
 }
 
 .excel-table th:nth-child(2),
 .excel-table td:nth-child(2) {
-  width: 20%; /* Author */
+  width: 15%; /* Author */
 }
 
 .excel-table th:nth-child(3),
 .excel-table td:nth-child(3) {
-  width: 20%; /* Publisher */
+  width: 15%; /* Publisher */
 }
 
 .excel-table th:nth-child(4),
 .excel-table td:nth-child(4) {
-  width: 15%; /* ISBN */
+  width: 13%; /* ISBN */
 }
 
 .excel-table th:nth-child(5),
 .excel-table td:nth-child(5) {
-  width: 10%; /* Classification */
+  width: 15%; /* Classification */
 }
 
 .excel-table th:nth-child(6),
 .excel-table td:nth-child(6) {
-  width: 10%; /* Category */
+  width: 15%; /* Category */
 }
 
 .excel-table th:nth-child(7),
 .excel-table td:nth-child(7) {
-  width: 10%; /* Page Count */
+  width: 15%; /* Page Count */
 }
 
 .excel-table th:nth-child(8),
 .excel-table td:nth-child(8) {
   width: 10%; /* Price */
+}
+
+.excel-table th:nth-child(9),
+.excel-table td:nth-child(9) {
+  width: 10%; /* Add to Cart */
 }
 
 .excel-table thead {

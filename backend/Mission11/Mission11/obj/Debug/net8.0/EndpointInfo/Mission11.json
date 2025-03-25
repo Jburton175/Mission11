@@ -45,6 +45,16 @@
               "type": "string",
               "default": "asc"
             }
+          },
+          {
+            "name": "categoryTypes",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
           }
         ],
         "responses": {

@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { Book } from "./types/Books";
-import "./Bookcss.css";
+import { Book } from "../types/Books";
+import "../css/Bookcss.css";
+import { useNavigate } from "react-router-dom";
 
-function Booklist() {
+function Booklist({ selectedCategories }: { selectedCategories: string[] }) {
   const [books, setBooks] = useState<Book[]>([]);
   const [rowNum, setRowNum] = useState<number>(5);
   const [pageNum, setPageNum] = useState<number>(1);
@@ -10,11 +11,17 @@ function Booklist() {
   const [totalPages, setTotalPages] = useState<number>(0);
   const [sortBy, setSortBy] = useState<string>("title"); // Default sorting by title
   const [sortDirection, setSortDirection] = useState<string>("asc"); // Default sorting direction is ascending
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchBooks = async () => {
+      // receives information from the CategoryFilter.tsx to append onto the parameters
+      const categoryParams = selectedCategories
+        .map((cat) => `categoryTypes=${encodeURIComponent(cat)}`)
+        .join("&");
+
       const response = await fetch(
-        `https://localhost:5000/Books?rownum=${rowNum}&pagenum=${pageNum}&sortBy=${sortBy}&sortDirection=${sortDirection}`
+        `https://localhost:5000/Books?rownum=${rowNum}&pagenum=${pageNum}&sortBy=${sortBy}&sortDirection=${sortDirection}${selectedCategories.length ? "&" + categoryParams : ""}`
       );
       const data = await response.json();
       setBooks(data.books);
@@ -22,7 +29,7 @@ function Booklist() {
     };
 
     fetchBooks();
-  }, [rowNum, pageNum, sortBy, sortDirection]);
+  }, [rowNum, pageNum, totalItems, sortBy, sortDirection, selectedCategories]);
 
   useEffect(() => {
     setTotalPages(Math.ceil(totalItems / rowNum));
@@ -40,7 +47,7 @@ function Booklist() {
   };
 
   return (
-    <div className="container mt-4">
+    <div className="container mt-2">
       <table className="table excel-table">
         <thead>
           <tr>
@@ -59,6 +66,7 @@ function Booklist() {
             <th>Category</th>
             <th>Page Count</th>
             <th>Price</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -75,6 +83,14 @@ function Booklist() {
               <td>{b.category}</td>
               <td>{b.pageCount}</td>
               <td>${b.price.toFixed(2)}</td>
+              <td>
+                <button
+                  className="btn btn-success"
+                  onClick={() => navigate("/cart")}
+                >
+                  Add to Cart
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>

@@ -1,12 +1,17 @@
-import "./App.css";
-import Booklist from "./Booklist";
-import CategoryFilter from "./CategoryFilter";
+import "./css/App.css";
+import BooksPage from "./pages/BooksPage";
+import CartPage from "./pages/CartPage";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <>
-      <CategoryFilter />
-      <Booklist />
+      <Router>
+        <Routes>
+          <Route path="/" element={<BooksPage />} />
+          <Route path="/cart" element={<CartPage />} />
+        </Routes>
+      </Router>
     </>
   );
 }
