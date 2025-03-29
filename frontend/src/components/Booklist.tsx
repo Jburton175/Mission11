@@ -9,13 +9,12 @@ function Booklist({ selectedCategories }: { selectedCategories: string[] }) {
   const [pageNum, setPageNum] = useState<number>(1);
   const [totalItems, setTotalItems] = useState<number>(0);
   const [totalPages, setTotalPages] = useState<number>(0);
-  const [sortBy, setSortBy] = useState<string>("title"); // Default sorting by title
-  const [sortDirection, setSortDirection] = useState<string>("asc"); // Default sorting direction is ascending
+  const [sortBy, setSortBy] = useState<string>("title");
+  const [sortDirection, setSortDirection] = useState<string>("asc");
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchBooks = async () => {
-      // receives information from the CategoryFilter.tsx to append onto the parameters
       const categoryParams = selectedCategories
         .map((cat) => `categoryTypes=${encodeURIComponent(cat)}`)
         .join("&");
@@ -35,20 +34,19 @@ function Booklist({ selectedCategories }: { selectedCategories: string[] }) {
     setTotalPages(Math.ceil(totalItems / rowNum));
   }, [totalItems, rowNum]);
 
-  // Toggle sort direction for title
   const toggleSortByTitle = () => {
     if (sortBy === "title") {
-      // Toggle between ascending and descending order
       setSortDirection(sortDirection === "asc" ? "desc" : "asc");
     } else {
       setSortBy("title");
-      setSortDirection("asc"); // Default to ascending when sorting by title
+      setSortDirection("asc");
     }
   };
 
   return (
-    <div className="container mt-2">
-      <table className="table excel-table">
+    <div className="container mt-4">
+      {/* added bootstrap to make the table dark mode and striped - https://getbootstrap.com/docs/5.0/content/tables/*/}
+      <table className="table table-dark table-striped table-hover">
         <thead>
           <tr>
             <th
@@ -71,10 +69,7 @@ function Booklist({ selectedCategories }: { selectedCategories: string[] }) {
         </thead>
         <tbody>
           {books.map((b, index) => (
-            <tr
-              key={b.bookId}
-              className={index % 2 === 0 ? "even-row" : "odd-row"}
-            >
+            <tr key={b.bookId}>
               <td>{b.title}</td>
               <td>{b.author}</td>
               <td>{b.publisher}</td>
@@ -85,8 +80,12 @@ function Booklist({ selectedCategories }: { selectedCategories: string[] }) {
               <td>${b.price.toFixed(2)}</td>
               <td>
                 <button
-                  className="btn btn-success"
-                  onClick={() => navigate("/cart")}
+                  className="btn btn-success btn-sm"
+                  onClick={() =>
+                    navigate(
+                      `/addcart/${encodeURIComponent(b.title)}/${b.price}/${b.bookId}`
+                    )
+                  }
                 >
                   Add to Cart
                 </button>
@@ -96,40 +95,47 @@ function Booklist({ selectedCategories }: { selectedCategories: string[] }) {
         </tbody>
       </table>
 
-      <br />
-
       {/* Pagination Controls */}
-      <div className="pagination-container">
-        <button
-          className={`btn btn-prev-next ${pageNum === 1 ? "btn-disabled" : ""}`}
-          disabled={pageNum === 1}
-          onClick={() => setPageNum(pageNum - 1)}
-        >
-          Previous
-        </button>
+      <nav aria-label="Page navigation example" className="mt-3">
+        <ul className="pagination justify-content-center">
+          <li className={`page-item ${pageNum === 1 ? "disabled" : ""}`}>
+            <button
+              className="page-link"
+              onClick={() => setPageNum(pageNum - 1)}
+            >
+              Previous
+            </button>
+          </li>
 
-        {[...Array(totalPages)].map((_, index) => (
-          <button
-            key={index + 1}
-            className={`btn ${pageNum === index + 1 ? "btn-secondary" : "btn-outline-primary"}`}
-            onClick={() => setPageNum(index + 1)}
-            disabled={pageNum === index + 1} // Disable the current page button
+          {[...Array(totalPages)].map((_, index) => (
+            <li
+              key={index + 1}
+              className={`page-item ${pageNum === index + 1 ? "active" : ""}`}
+            >
+              <button
+                className="page-link"
+                onClick={() => setPageNum(index + 1)}
+              >
+                {index + 1}
+              </button>
+            </li>
+          ))}
+
+          <li
+            className={`page-item ${pageNum === totalPages ? "disabled" : ""}`}
           >
-            {index + 1}
-          </button>
-        ))}
-
-        <button
-          className={`btn btn-prev-next ${pageNum === totalPages ? "btn-disabled" : ""}`}
-          disabled={pageNum === totalPages}
-          onClick={() => setPageNum(pageNum + 1)}
-        >
-          Next
-        </button>
-      </div>
+            <button
+              className="page-link"
+              onClick={() => setPageNum(pageNum + 1)}
+            >
+              Next
+            </button>
+          </li>
+        </ul>
+      </nav>
 
       {/* Results Per Page Dropdown */}
-      <div className="d-flex justify-content-end">
+      <div className="d-flex justify-content-end align-items-center mt-3">
         <label className="me-2 fw-bold">Results per page:</label>
         <select
           className="form-select w-auto"

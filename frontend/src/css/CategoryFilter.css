@@ -1,0 +1,4 @@
+.tall-select {
+  height: 300px; /* Increase height */
+  overflow-y: auto; /* Allow scrolling if needed */
+}

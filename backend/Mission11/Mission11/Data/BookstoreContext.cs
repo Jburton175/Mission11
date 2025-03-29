@@ -18,7 +18,7 @@ public partial class BookstoreContext : DbContext
     public virtual DbSet<Book> Books { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-         => optionsBuilder.UseSqlite("Data Source=C:\\Users\\jburt\\OneDrive\\Documents\\Winter_2025_Classes\\IS 413\\Mission11\\backend\\Mission11\\Mission11\\Bookstore.sqlite");
+         => optionsBuilder.UseSqlite("Data Source=Bookstore.sqlite");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

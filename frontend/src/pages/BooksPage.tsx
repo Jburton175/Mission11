@@ -2,6 +2,7 @@ import "../css/App.css";
 import Booklist from "../components/Booklist";
 import CategoryFilter from "../components/CategoryFilter";
 import { useState } from "react";
+import CartSummary from "../components/CartSummary";
 
 function App() {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
@@ -16,8 +17,11 @@ function App() {
               setSelectedCategories={setSelectedCategories}
             />
           </div>
-          <div className="col-md-10">
+          <div className="col-md-8">
             <Booklist selectedCategories={selectedCategories} />
+          </div>
+          <div className="col-md-2">
+            <CartSummary />
           </div>
         </div>
       </div>

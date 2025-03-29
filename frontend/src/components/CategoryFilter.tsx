@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "../css/CategoryFilter.css";
 
 function CategoryFilter({
   selectedCategories,
   setSelectedCategories,
 }: {
   selectedCategories: string[];
-  setSelectedCategories: (cateogries: string[]) => void;
+  setSelectedCategories: (categories: string[]) => void;
 }) {
   const [categories, setCategories] = useState<string[]>([]);
 
@@ -22,35 +23,36 @@ function CategoryFilter({
     fetchCategories();
   }, []);
 
-  function handleCheckboxChange({ target }: { target: HTMLInputElement }) {
-    const updatedCategories = selectedCategories.includes(target.value)
-      ? selectedCategories.filter((c) => c !== target.value)
-      : [...selectedCategories, target.value];
-
-    setSelectedCategories(updatedCategories);
+  function handleSelectChange(event: React.ChangeEvent<HTMLSelectElement>) {
+    const selectedOptions = Array.from(
+      event.target.selectedOptions,
+      (option) => option.value
+    );
+    setSelectedCategories(selectedOptions);
   }
 
   return (
+    // class from bootstrap that gives the filter a multi select rather than a checkbox - https://getbootstrap.com/docs/5.0/forms/select/
     <div className="container">
       <div className="row">
-        <div className="col-md-15">
+        <div className="col-md-12">
           <div className="card shadow-sm p-3">
             <h5 className="mb-3">Category Types</h5>
+
             <div className="filter-box">
-              {categories.map((c) => (
-                <div className="form-check mb-2" key={c}>
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    id={c}
-                    value={c}
-                    onChange={handleCheckboxChange}
-                  />
-                  <label className="form-check-label" htmlFor={c}>
+              <select
+                multiple
+                className="form-select tall-select" // Custom class for height
+                aria-label="Category selection"
+                value={selectedCategories}
+                onChange={handleSelectChange}
+              >
+                {categories.map((c) => (
+                  <option key={c} value={c}>
                     {c}
-                  </label>
-                </div>
-              ))}
+                  </option>
+                ))}
+              </select>
             </div>
           </div>
         </div>
