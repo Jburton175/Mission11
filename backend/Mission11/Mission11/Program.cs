@@ -15,6 +15,15 @@ builder.Services.AddDbContext<BookstoreContext>(options =>
 
 builder.Services.AddScoped<BooksInterface, EFBooks>();
 
+builder.Services.AddCors(options => 
+    options.AddPolicy("AddBook",
+    policy =>
+    {
+        policy.WithOrigins("http://localhost:3001")
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+    }));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -24,7 +33,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors(x => x.WithOrigins("http://localhost:3001"));
+app.UseCors("AddBook");
 
 app.UseHttpsRedirection();
 

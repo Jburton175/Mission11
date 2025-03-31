@@ -8,6 +8,7 @@ import CartPage from "./pages/CartPage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ConfirmCartPage from "./pages/ConfirmCartPage";
 import { CartProvider } from "./context/CartContext";
+import Admin from "./pages/Admin";
 
 function App() {
   return (
@@ -22,7 +23,8 @@ function App() {
               element={<ConfirmCartPage />}
             />
 
-            <Route path="/cart/" element={<CartPage />} />
+            <Route path="/cart" element={<CartPage />} />
+            <Route path="/admin" element={<Admin />} />
           </Routes>
         </Router>
       </CartProvider>
