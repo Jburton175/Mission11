@@ -266,10 +266,10 @@ C:\Users\jburt\OneDrive\Documents\Winter_2025_Classes\IS 413\Mission12\Mission11
 C:\Users\jburt\OneDrive\Documents\Winter_2025_Classes\IS 413\Mission12\Mission11\backend\Mission11\Mission11\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Mission11.props
 C:\Users\jburt\OneDrive\Documents\Winter_2025_Classes\IS 413\Mission12\Mission11\backend\Mission11\Mission11\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Mission11.props
 C:\Users\jburt\OneDrive\Documents\Winter_2025_Classes\IS 413\Mission12\Mission11\backend\Mission11\Mission11\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Users\jburt\OneDrive\Documents\Winter_2025_Classes\IS 413\Mission12\Mission11\backend\Mission11\Mission11\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\jburt\OneDrive\Documents\Winter_2025_Classes\IS 413\Mission12\Mission11\backend\Mission11\Mission11\obj\Debug\net8.0\Mission11.csproj.Up2Date
 C:\Users\jburt\OneDrive\Documents\Winter_2025_Classes\IS 413\Mission12\Mission11\backend\Mission11\Mission11\obj\Debug\net8.0\Mission11.dll
 C:\Users\jburt\OneDrive\Documents\Winter_2025_Classes\IS 413\Mission12\Mission11\backend\Mission11\Mission11\obj\Debug\net8.0\refint\Mission11.dll
 C:\Users\jburt\OneDrive\Documents\Winter_2025_Classes\IS 413\Mission12\Mission11\backend\Mission11\Mission11\obj\Debug\net8.0\Mission11.pdb
 C:\Users\jburt\OneDrive\Documents\Winter_2025_Classes\IS 413\Mission12\Mission11\backend\Mission11\Mission11\obj\Debug\net8.0\Mission11.genruntimeconfig.cache
 C:\Users\jburt\OneDrive\Documents\Winter_2025_Classes\IS 413\Mission12\Mission11\backend\Mission11\Mission11\obj\Debug\net8.0\ref\Mission11.dll
+C:\Users\jburt\OneDrive\Documents\Winter_2025_Classes\IS 413\Mission12\Mission11\backend\Mission11\Mission11\bin\Debug\net8.0\Bookstore.sqlite
