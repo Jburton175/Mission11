@@ -1,6 +1,4 @@
-import { useState } from "react";
 import { useCart } from "../context/CartContext";
-import { CartItem } from "../types/CartItem";
 
 function CartSummary() {
   const { cart } = useCart();
