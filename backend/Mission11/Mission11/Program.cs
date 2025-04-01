@@ -19,7 +19,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AddBook",
     policy =>
     {
-        policy.WithOrigins("http://localhost:3001", "https://brave-plant-030c3ae1e.6.azurestaticapps.net/")
+        policy.WithOrigins("http://localhost:3001", "https://brave-plant-030c3ae1e.6.azurestaticapps.net")
             .AllowAnyMethod()
             .AllowAnyHeader();
     }));
