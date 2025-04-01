@@ -25,6 +25,7 @@ function App() {
 
             <Route path="/cart" element={<CartPage />} />
             <Route path="/admin" element={<Admin />} />
+            <Route path="/adminbooks" element={<Admin />} />
           </Routes>
         </Router>
       </CartProvider>
