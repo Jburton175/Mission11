@@ -19,7 +19,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AddBook",
     policy =>
     {
-        policy.WithOrigins("http://localhost:3001")
+        policy.WithOrigins("http://localhost:3001", "https://mission13.azurewebsites.net/")
             .AllowAnyMethod()
             .AllowAnyHeader();
     }));
