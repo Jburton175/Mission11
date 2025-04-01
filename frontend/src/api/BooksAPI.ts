@@ -1,6 +1,6 @@
 import { Book } from "../types/Books";
 
-const API_URL = `https://mission13.azurewebsites.net/`;
+const API_URL = `https://mission13.azurewebsites.net/books`;
 
 interface FetchBooksResponse {
   books: Book[];

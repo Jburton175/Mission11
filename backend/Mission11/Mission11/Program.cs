@@ -33,9 +33,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseHttpsRedirection();
+
 app.UseCors("AddBook");
 
-app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
