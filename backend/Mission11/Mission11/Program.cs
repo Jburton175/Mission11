@@ -3,10 +3,8 @@ using Mission11.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -19,7 +17,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AddBook",
     policy =>
     {
-        policy.WithOrigins("http://localhost:3001", "https://brave-plant-030c3ae1e.6.azurestaticapps.net")
+        policy.AllowAnyOrigin()//("http://localhost:3001", "https://brave-plant-030c3ae1e.6.azurestaticapps.net")
             .AllowAnyMethod()
             .AllowAnyHeader();
     }));
